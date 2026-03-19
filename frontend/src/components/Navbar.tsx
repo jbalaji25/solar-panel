@@ -1,0 +1,179 @@
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/logo.png";
+
+const serviceItems = [
+  { label: "Renewable solar Energy", path: "/services/renewable-solar-panel" },
+  { label: "Import And Export", path: "/services/import-and-export" },
+  { label: "Rental, Leasing & Transportation", path: "/services/rental-leasing-transportation" },
+  { label: "Hospitality Services", path: "/services/hospitality-services" },
+  { label: "Logistics & Warehouse Management", path: "/services/logistics-warehouse-management" },
+  { label: "Real Estate", path: "/services/real-estate" },
+];
+
+const projectItems = [
+  { label: "Mechanical", path: "/projects/mechanical" },
+  { label: "Civil", path: "/projects/civil" },
+];
+
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".desktop-dropdown")) {
+        setServicesOpen(false);
+        setProjectsOpen(false);
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    document.addEventListener("click", onClickOutside);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("click", onClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setServicesOpen(false);
+    setProjectsOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return (
+    <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/75 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-b border-white/60" : "bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-sm border-b border-slate-100"}`}>
+      <div className={`container mx-auto flex items-center justify-between transition-all duration-300 ${scrolled ? "h-20" : "h-24"} px-4`}>
+        <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity group">
+          <img src={logo} alt="Metallica" className={`transition-all duration-300 ${scrolled ? "h-16" : "h-20"}`} />
+          <div className="hidden sm:flex flex-col justify-center border-l border-slate-200 pl-4 py-1">
+            <span className="font-heading font-black tracking-tighter text-2xl md:text-3xl navy-text leading-none group-hover:text-gold transition-colors">METALLICA</span>
+            <span className="text-[10px] md:text-[11px] font-bold text-slate-500 uppercase tracking-[0.2em] mt-1 leading-none">Projects & Services</span>
+          </div>
+        </Link>
+
+        {/* Desktop */}
+        <div className="hidden lg:flex items-center gap-7">
+          <Link to="/" className="nav-link navy-text py-2">Home</Link>
+          <Link to="/about" className="nav-link navy-text py-2">About Us</Link>
+          <Link to="/management" className="nav-link navy-text py-2">Management</Link>
+
+          {/* Services Dropdown */}
+          <div className="relative desktop-dropdown">
+            <button
+              onClick={() => {
+                setServicesOpen(!servicesOpen);
+                setProjectsOpen(false);
+              }}
+              className="nav-link navy-text py-2 flex items-center gap-1"
+            >
+              Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full left-0 w-72 bg-white/85 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] rounded-xl border border-white/50 py-2 animate-fade-in divide-y divide-gray-50/50 mt-1" style={{ animationDuration: "0.2s" }}>
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block py-3 pl-5 pr-4 text-sm font-medium text-slate-700 hover:bg-gold/5 hover:text-gold hover:pl-7 transition-all duration-300 font-body"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Projects Dropdown */}
+          <div className="relative desktop-dropdown">
+            <button
+              onClick={() => {
+                setProjectsOpen(!projectsOpen);
+                setServicesOpen(false);
+              }}
+              className="nav-link navy-text py-2 flex items-center gap-1"
+            >
+              Projects <ChevronDown size={14} className={`transition-transform duration-200 ${projectsOpen ? "rotate-180" : ""}`} />
+            </button>
+            {projectsOpen && (
+              <div className="absolute top-full left-0 w-56 bg-white/85 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] rounded-xl border border-white/50 py-2 animate-fade-in divide-y divide-gray-50/50 mt-1" style={{ animationDuration: "0.2s" }}>
+                {projectItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="block py-3 pl-5 pr-4 text-sm font-medium text-slate-700 hover:bg-gold/5 hover:text-gold hover:pl-7 transition-all duration-300 font-body"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link to="/contact" className="nav-link navy-text py-2">Contact Us</Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button className="lg:hidden navy-text" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white/95 backdrop-blur-lg border-t border-slate-100 pb-4 max-h-[80vh] overflow-y-auto w-full absolute shadow-2xl">
+          <Link to="/" className="block w-full text-left px-6 py-3 nav-link navy-text">Home</Link>
+          <Link to="/about" className="block w-full text-left px-6 py-3 nav-link navy-text">About Us</Link>
+          <Link to="/management" className="block w-full text-left px-6 py-3 nav-link navy-text">Management</Link>
+
+          {/* Mobile Services */}
+          <button
+            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+            className="w-full text-left px-6 py-3 nav-link navy-text flex items-center justify-between"
+          >
+            Services <ChevronDown size={14} className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`} />
+          </button>
+          {mobileServicesOpen && (
+            <div className="bg-muted">
+              {serviceItems.map((item) => (
+                <Link key={item.path} to={item.path} className="block px-10 py-2.5 text-sm navy-text hover:text-gold transition-colors font-body">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Mobile Projects */}
+          <button
+            onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
+            className="w-full text-left px-6 py-3 nav-link navy-text flex items-center justify-between"
+          >
+            Projects <ChevronDown size={14} className={`transition-transform ${mobileProjectsOpen ? "rotate-180" : ""}`} />
+          </button>
+          {mobileProjectsOpen && (
+            <div className="bg-muted">
+              {projectItems.map((item) => (
+                <Link key={item.path} to={item.path} className="block px-10 py-2.5 text-sm navy-text hover:text-gold transition-colors font-body">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          <Link to="/contact" className="block w-full text-left px-6 py-3 nav-link navy-text">Contact Us</Link>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
