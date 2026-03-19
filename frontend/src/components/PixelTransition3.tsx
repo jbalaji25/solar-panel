@@ -1,5 +1,5 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type GL = Renderer['gl'];
 
@@ -374,6 +374,15 @@ class Media {
   }
 }
 
+function isWebGLAvailable() {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+  } catch (e) {
+    return false;
+  }
+}
+
 interface AppConfig {
   items?: { image: string; text: string }[];
   bend?: number;
@@ -435,6 +444,9 @@ class App {
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
     this.createRenderer();
+
+    if (!this.gl) return;
+
     this.createCamera();
     this.createScene();
     this.onResize();
@@ -446,14 +458,20 @@ class App {
   }
 
   createRenderer() {
-    this.renderer = new Renderer({
-      alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
-    });
-    this.gl = this.renderer.gl;
-    this.gl.clearColor(0, 0, 0, 0);
-    this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    try {
+      this.renderer = new Renderer({
+        alpha: true,
+        antialias: true,
+        dpr: Math.min(window.devicePixelRatio || 1, 2)
+      });
+      this.gl = this.renderer.gl;
+      if (!this.gl) return;
+      this.gl.clearColor(0, 0, 0, 0);
+      this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+    } catch (e) {
+      console.error("Renderer initialization failed:", e);
+      this.gl = null as any;
+    }
   }
 
   createCamera() {
@@ -651,6 +669,7 @@ class App {
   }
 
   update() {
+    if (!this.gl || !this.renderer || !this.camera) return;
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -721,21 +740,57 @@ export default function CircularGallery({
   onItemClick
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [webGLSupported, setWebGLSupported] = useState(true);
+
   useEffect(() => {
+    const supported = isWebGLAvailable();
+    if (!supported) {
+      setWebGLSupported(false);
+      return;
+    }
+
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, {
-      items,
-      bend,
-      textColor,
-      borderRadius,
-      font,
-      scrollSpeed,
-      scrollEase,
-      onItemClick
-    });
-    return () => {
-      app.destroy();
-    };
+    try {
+      const app = new App(containerRef.current, {
+        items,
+        bend,
+        textColor,
+        borderRadius,
+        font,
+        scrollSpeed,
+        scrollEase,
+        onItemClick
+      });
+      return () => {
+        app.destroy();
+      };
+    } catch (err) {
+      console.error("Failed to initialize OGL app:", err);
+      setWebGLSupported(false);
+    }
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, onItemClick]);
+
+  if (!webGLSupported) {
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-slate-50 rounded-3xl border border-slate-200 gap-6 overflow-y-auto">
+        <p className="text-slate-500 font-body text-center max-w-md">3D Gallery is not supported in this browser. Showing services in a simple grid view.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+          {items?.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-4 rounded-2xl shadow-md border border-slate-100 flex flex-col items-center gap-3 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              onClick={() => onItemClick?.(item, idx)}
+            >
+              <div className="w-full h-32 overflow-hidden rounded-xl">
+                <img src={item.image} alt={item.text} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <span className="font-heading font-bold text-navy text-center leading-tight">{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return <div className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef} />;
 }
