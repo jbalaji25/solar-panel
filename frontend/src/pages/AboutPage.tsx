@@ -14,22 +14,22 @@ const AboutPage = () => {
     <>
       <PageBanner title="About Us" breadcrumb="Our Profile" />
 
-      <section className="section-padding relative bg-gradient-to-br from-blue-50 via-cyan-50/80 to-teal-50/80 overflow-hidden">
-        {/* High-Impact Cooling Ambient Orbs */}
-        <div className="absolute top-[-20%] right-[-10%] -z-10 w-[1000px] h-[1000px] bg-cyan-400/30 rounded-[100%] blur-[140px] pointer-events-none mix-blend-multiply"></div>
-        <div className="absolute bottom-[-10%] left-[-20%] -z-10 w-[900px] h-[900px] bg-blue-400/20 rounded-[100%] blur-[130px] pointer-events-none mix-blend-multiply"></div>
-        <div className="absolute top-[30%] left-[20%] -z-10 w-[800px] h-[800px] bg-teal-300/25 rounded-[100%] blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      <section className="py-16 md:py-24 px-4 relative bg-gradient-to-br from-blue-50 via-cyan-50/80 to-teal-50/80 overflow-hidden">
+        {/* High-Impact Cooling Ambient Orbs (Hidden on Mobile for Performance and Layout Neatness) */}
+        <div className="absolute top-[-20%] right-[-10%] -z-10 w-[1000px] h-[1000px] bg-cyan-400/30 rounded-[100%] blur-[140px] pointer-events-none mix-blend-multiply hidden lg:block"></div>
+        <div className="absolute bottom-[-10%] left-[-20%] -z-10 w-[900px] h-[900px] bg-blue-400/20 rounded-[100%] blur-[130px] pointer-events-none mix-blend-multiply hidden lg:block"></div>
+        <div className="absolute top-[30%] left-[20%] -z-10 w-[800px] h-[800px] bg-teal-300/25 rounded-[100%] blur-[120px] pointer-events-none mix-blend-multiply hidden lg:block"></div>
 
-        <div className="container mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Profile Image */}
-          <div className="grid lg:grid-cols-2 gap-10 items-start mb-16">
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img src={aboutImg} alt="About Metallica" className="w-full h-auto object-cover" loading="lazy" />
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start mb-16 px-2 md:px-0">
+            <div className="rounded-lg overflow-hidden shadow-xl mb-8 lg:mb-0">
+              <img src={aboutImg} alt="About Metallica" className="w-full h-auto object-cover max-h-[350px] lg:max-h-none" />
             </div>
-            <div>
+            <div className="px-2 md:px-0 text-left">
               <p className="section-title">ABOUT US</p>
-              <h2 className="section-heading mb-6">Our Profile</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed font-body text-sm">
+              <h2 className="section-heading mb-6 text-2xl md:text-3xl lg:text-5xl">Our Profile</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed font-body text-sm md:text-base">
                 <p>
                   The group has always worked on the guiding principles of Honesty, Integrity, Mutual Respect and Foresightedness, and hence the family has great acceptance in The State of Kuwait among Natives and Expats.
                 </p>
@@ -44,7 +44,7 @@ const AboutPage = () => {
                 </p>
               </div>
 
-              <div className="mt-6 space-y-2">
+              <div className="mt-8 space-y-3">
                 {[
                   "Impeccable Industry Markets",
                   "All Construction & Contracting Solutions",
@@ -54,7 +54,7 @@ const AboutPage = () => {
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle size={16} className="text-gold flex-shrink-0" />
-                    <span className="text-sm font-body text-foreground">{item}</span>
+                    <span className="text-sm font-body text-foreground leading-tight">{item}</span>
                   </div>
                 ))}
               </div>
@@ -64,9 +64,9 @@ const AboutPage = () => {
           {/* Mission & Vision */}
           <div className="mb-16">
             <p className="section-title text-center">ABOUT METALLICA</p>
-            <h2 className="section-heading text-center mb-12">Mission & Vision</h2>
+            <h2 className="section-heading text-center mb-10 text-2xl md:text-4xl">Mission & Vision</h2>
 
-            <div className="w-full px-12 xl:px-16 text-center">
+            <div className="w-full px-2 md:px-12 xl:px-16 text-center">
               <Carousel
                 opts={{
                   align: "start",
@@ -76,8 +76,8 @@ const AboutPage = () => {
               >
                 <CarouselContent>
                   <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
-                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-6 md:p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
+                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
                         <span className="font-heading font-bold gold-text">1</span>
                       </div>
                       <h3 className="font-heading font-bold text-lg navy-text mb-3">Our Mission</h3>
@@ -87,8 +87,8 @@ const AboutPage = () => {
                     </div>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
-                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-6 md:p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
+                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
                         <span className="font-heading font-bold gold-text">2</span>
                       </div>
                       <h3 className="font-heading font-bold text-lg navy-text mb-3">Our Vision</h3>
@@ -98,8 +98,8 @@ const AboutPage = () => {
                     </div>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
-                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <div className="bg-gradient-to-br from-white to-slate-50/80 p-6 md:p-9 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] border border-slate-100 hover:border-gold/30 border-t-4 border-t-gold hover:-translate-y-2 transition-all duration-500 h-full relative overflow-hidden group">
+                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
                         <span className="font-heading font-bold gold-text">3</span>
                       </div>
                       <h3 className="font-heading font-bold text-lg navy-text mb-3">Core Values</h3>

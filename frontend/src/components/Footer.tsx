@@ -97,14 +97,22 @@ const Footer = () => {
               </div>
               <div className="flex gap-3">
                 <Phone size={16} className="flex-shrink-0 mt-0.5 gold-text" />
-                <span>+965 9898 8281, +965 6002 6630, +965 9220 6549</span>
+                <div className="flex flex-col gap-1">
+                  <span>+965 9898 8281</span>
+                  <span>+965 6002 6630</span>
+                  <span>+965 9220 6549</span>
+                </div>
               </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-primary-foreground/10">
-              <h5 className="font-heading font-bold text-sm mb-2 gold-text">Get Free Estimate</h5>
-              <p className="text-lg font-bold gold-text font-heading">+965 9898 8281, +965 6002 6630, +965 9220 6549</p>
-              <p className="text-xs text-primary-foreground/50 mt-1">Our online scheduling and payment system is safe.</p>
+              <h4 className="font-heading font-bold text-sm mb-3 gold-text">Get Free Estimate</h4>
+              <div className="text-base sm:text-lg font-bold gold-text font-heading flex flex-col gap-1">
+                <span>+965 9898 8281</span>
+                <span>+965 6002 6630</span>
+                <span>+965 9220 6549</span>
+              </div>
+              <p className="text-[10px] text-primary-foreground/50 mt-2">Our online scheduling and payment system is safe.</p>
             </div>
           </div>
         </div>

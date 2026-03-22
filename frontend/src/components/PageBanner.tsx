@@ -13,7 +13,7 @@ const PageBanner = ({ title, breadcrumb }: PageBannerProps) => {
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }} />
       <div className="overlay-dark" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground font-heading mb-3">{title}</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground font-heading mb-3">{title}</h1>
         <div className="flex items-center gap-2 text-sm text-primary-foreground/80 font-body">
           <Link to="/" className="flex items-center gap-1 hover:text-gold transition-colors">
             <Home size={14} /> Home

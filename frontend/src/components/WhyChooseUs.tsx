@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto" ref={ref}>
         <div className="text-center mb-14">
           <p className="text-sm font-semibold tracking-widest uppercase mb-3 gold-text">WHY CHOOSE US</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-heading text-primary-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-heading text-primary-foreground">
             Why We Are The Best In Construction
           </h2>
         </div>

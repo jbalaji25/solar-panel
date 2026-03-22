@@ -20,6 +20,11 @@ import MechanicalPage from "./pages/projects/MechanicalPage.tsx";
 import CivilPage from "./pages/projects/CivilPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import RenewableSolarPage from "./pages/services/RenewableSolarPage.tsx";
+import SolarPowerPlantDetailed from "./pages/services/SolarPowerPlantDetailed.tsx";
+import SolarPumpsDetailed from "./pages/services/SolarPumpsDetailed.tsx";
+import SolarStreetLightsDetailed from "./pages/services/SolarStreetLightsDetailed.tsx";
+import SolarWaterHeatersDetailed from "./pages/services/SolarWaterHeatersDetailed.tsx";
+import SolarBatteriesDetailed from "./pages/services/SolarBatteriesDetailed.tsx";
 
 const queryClient = new QueryClient();
 
@@ -36,14 +41,16 @@ const App = () => (
             <Route path="/management" element={<ManagementPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/services/renewable-solar-panel" element={<RenewableSolarPage />} />
+            <Route path="/services/solar-power-plants" element={<SolarPowerPlantDetailed />} />
+            <Route path="/services/solar-pumps" element={<SolarPumpsDetailed />} />
+            <Route path="/services/solar-street-lights" element={<SolarStreetLightsDetailed />} />
+            <Route path="/services/solar-water-heaters" element={<SolarWaterHeatersDetailed />} />
+            <Route path="/services/solar-batteries" element={<SolarBatteriesDetailed />} />
             <Route path="/services/import-and-export" element={<ImportExportPage />} />
             <Route path="/services/rental-leasing-transportation" element={<RentalLeasingPage />} />
             <Route path="/services/hospitality-services" element={<HospitalityPage />} />
             <Route path="/services/logistics-warehouse-management" element={<LogisticsPage />} />
             <Route path="/services/real-estate" element={<RealEstatePage />} />
-            <Route path="/services/cat-n-joy" element={<CatNJoyPage />} />
-            <Route path="/services/dog-n-joy" element={<DogNJoyPage />} />
-            <Route path="/services/perfecta" element={<PerfectaPage />} />
             <Route path="/projects/mechanical" element={<MechanicalPage />} />
             <Route path="/projects/civil" element={<CivilPage />} />
             <Route path="*" element={<NotFound />} />

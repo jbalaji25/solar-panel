@@ -5,6 +5,11 @@ const PerfectaPage = () => (
   <ServicePageTemplate
     title="Perfecta"
     image={img}
+    backgroundImg={img}
+    layout="side-by-side"
+    sectionStyle={{
+      background: 'transparent',
+    }}
     description="Perfecta Pet Food — A premium pet food brand offering superior nutrition and taste for pets. Our Perfecta range is designed to meet the highest standards of quality and nutritional value."
     details={[
       "Premium formulation for optimal pet health",

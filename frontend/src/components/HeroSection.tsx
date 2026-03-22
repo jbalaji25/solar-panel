@@ -103,38 +103,38 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div key={`content-${current}`} className={`relative z-10 container mx-auto h-full px-8 md:px-12 lg:px-24 flex items-center ${isLeft ? "justify-start" : "justify-end"}`}>
-        <div className={`w-full md:w-[50%] lg:w-[45%] xl:w-[45%] flex flex-col justify-center ${isLeft ? "items-start text-left" : "items-end text-right"} transition-all duration-700 ease-out delay-100 ${isInitialLoad || !fade
+      <div key={`content-${current}`} className={`relative z-10 mx-auto h-full px-4 sm:px-8 md:px-12 lg:px-24 flex items-center ${isLeft ? "justify-start" : "justify-end"}`}>
+        <div className={`w-full md:w-[60%] lg:w-[45%] flex flex-col justify-center ${isLeft ? "items-start text-left" : "items-end text-right"} transition-all duration-700 ease-out delay-100 ${isInitialLoad || !fade
           ? (isLeft ? "opacity-0 -translate-x-12" : "opacity-0 translate-x-12")
           : "opacity-100 translate-x-0"
           }`}>
-          <div className={`flex items-center gap-3 mb-8 ${isLeft ? "" : "flex-row-reverse"}`}>
-            <div className="w-1.5 h-6 bg-[#3b82f6] rounded-full"></div>
-            <p className="text-xs md:text-sm tracking-[0.3em] font-bold text-white/80 font-heading">
+          <div className={`flex items-center gap-2 mb-6 ${isLeft ? "" : "flex-row-reverse"}`}>
+            <div className="w-1 h-5 bg-[#3b82f6] rounded-full"></div>
+            <p className="text-[10px] md:text-sm tracking-[0.25em] font-bold text-white/80 font-heading">
               WELCOME TO METALLICA
             </p>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white font-heading leading-tight mb-2 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white font-heading leading-tight mb-2 drop-shadow-lg">
             {slides[current].subtitle}
           </h1>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#facc15] mb-8 font-heading leading-tight drop-shadow-xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#facc15] mb-6 font-heading leading-tight drop-shadow-xl">
             {slides[current].highlight}
             {slides[current].highlightSuffix && (
               <span className="text-white"> {slides[current].highlightSuffix}</span>
             )}
           </h1>
 
-          <p className="text-white/80 text-sm md:text-base lg:text-lg max-w-2xl mb-12 font-body leading-relaxed">
+          <p className="text-white/80 text-xs sm:text-base lg:text-lg max-w-2xl mb-10 font-body leading-relaxed">
             {slides[current].description}
           </p>
 
-          <div className={`flex gap-6 flex-wrap ${isLeft ? "justify-start" : "justify-end"}`}>
-            <Link to="/services/import-and-export" className="px-10 py-4 border border-white/20 bg-white/5 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto ${isLeft ? "items-start" : "items-end sm:items-start"} ${isLeft ? "justify-start" : "justify-end"}`}>
+            <Link to="/services/import-and-export" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 border border-white/20 bg-white/5 backdrop-blur-sm text-white text-[10px] sm:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 text-center">
               Our Services
             </Link>
-            <Link to="/contact" className="px-10 py-4 bg-[#3b82f6] text-white text-sm font-bold uppercase tracking-widest hover:bg-[#2563eb] shadow-lg shadow-blue-500/20 transition-all duration-300">
+            <Link to="/contact" className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 bg-[#3b82f6] text-white text-[10px] sm:text-sm font-bold uppercase tracking-widest hover:bg-[#2563eb] shadow-lg shadow-blue-500/20 transition-all duration-300 text-center">
               Contact Us
             </Link>
           </div>

@@ -126,7 +126,7 @@ const AboutSection = () => {
           <p className="section-title">ABOUT US</p>
 
           <h2
-            className="mb-6 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-heading"
+            className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight font-heading"
             style={{ color: "#ffffff" }}
           >
             We Build Everything That You Need

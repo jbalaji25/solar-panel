@@ -221,7 +221,7 @@ class Media {
 
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false
     });
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -377,7 +377,10 @@ class Media {
 function isWebGLAvailable() {
   try {
     const canvas = document.createElement('canvas');
-    return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    return !!(window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') ||
+        canvas.getContext('experimental-webgl') ||
+        canvas.getContext('webgl2')));
   } catch (e) {
     return false;
   }
@@ -461,10 +464,16 @@ class App {
     try {
       this.renderer = new Renderer({
         alpha: true,
-        antialias: true,
-        dpr: Math.min(window.devicePixelRatio || 1, 2)
+        antialias: false, // More compatible
+        dpr: Math.min(window.devicePixelRatio || 1, 1.5), // Faster
+        webgl: 2 // Prefer WebGL 2.0 for better compatibility with images
       });
       this.gl = this.renderer.gl;
+      if (!this.gl) {
+        // Fallback attempt for some environments
+        const canvas = document.createElement('canvas');
+        this.gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl') as any;
+      }
       if (!this.gl) return;
       this.gl.clearColor(0, 0, 0, 0);
       this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);

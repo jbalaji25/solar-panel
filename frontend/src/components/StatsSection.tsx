@@ -39,7 +39,7 @@ const StatItem = ({ icon: Icon, value, label, suffix = "", active, delay }: {
       style={{ animationDelay: `${delay}s` }}
     >
       <Icon size={40} className="mx-auto mb-4 gold-text" />
-      <div className="text-5xl font-extrabold navy-text font-heading mb-2">
+      <div className="text-3xl sm:text-5xl font-extrabold navy-text font-heading mb-2">
         {count}{suffix}
       </div>
       <p className="text-navy/70 font-body text-sm uppercase tracking-wider">{label}</p>

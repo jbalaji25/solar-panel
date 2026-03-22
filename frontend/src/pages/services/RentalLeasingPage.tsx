@@ -6,9 +6,11 @@ import animationData from "@/assets/animations/delivery.json";
 const RentalLeasingPage = () => (
   <ServicePageTemplate
     title="Rental, Leasing & Transportation"
-    image={img}
+    image=""
+    backgroundImg={img}
+    layout="side-by-side"
     sectionStyle={{
-      background: 'linear-gradient(135deg, #daeef9 0%, #eaf6fc 50%, #d4ecf7 100%)',
+      background: 'transparent',
     }}
     description="Providing comprehensive rental, leasing, and transportation solutions for industrial needs. By dealing with data, we select tools that help you automate time-consuming processes and optimize your fleet operations."
     details={[
@@ -20,14 +22,6 @@ const RentalLeasingPage = () => (
     ]}
     imageCompanion={
       <div className="w-full h-full flex items-center justify-center p-4 relative">
-        {/* Crimson-red truck fleet color cast */}
-        <div
-          className="absolute inset-0 pointer-events-none z-10 rounded-2xl"
-          style={{
-            background: 'rgba(185, 40, 40, 0.20)',
-            mixBlendMode: 'color',
-          }}
-        />
         <Lottie
           animationData={animationData}
           loop={true}
