@@ -3,6 +3,11 @@ import img from "@/assets/renewable_solar_daytime.png";
 import Lottie from "lottie-react";
 import animationData from "@/assets/animations/solar_green_energy.json";
 import { Link } from "react-router-dom";
+import onGridImg from "@/assets/product_on_grid.png";
+import pumpImg from "@/assets/product_pump_7_5hp.png";
+import streetLightImg from "@/assets/product_street_all_in_one.png";
+import heaterImg from "@/assets/product_heater_kamal.png";
+import batteryImg from "@/assets/product_battery_microtek.png";
 
 import { Shield, Zap, Sun, Battery, Lightbulb, Droplets } from "lucide-react";
 
@@ -44,12 +49,15 @@ const RenewableSolarPage = () => (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Solar Power Plants */}
                 <Link to="/services/solar-power-plants" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                            <img src={onGridImg} alt="Solar Power Plant" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                        </div>
                         <div className="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center mb-6">
                             <Zap className="text-gold" size={28} />
                         </div>
                         <h4 className="text-xl font-bold text-navy mb-4">Solar Power Plants</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body">
+                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
                             <li className="flex items-center gap-2">
                                 <Sun size={16} className="text-gold" /> Off Grid Solar Power Plant
                             </li>
@@ -65,12 +73,15 @@ const RenewableSolarPage = () => (
 
                 {/* Solar Pumps */}
                 <Link to="/services/solar-pumps" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                            <img src={pumpImg} alt="Solar Pump" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                        </div>
                         <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6">
                             <Droplets className="text-blue-500" size={28} />
                         </div>
                         <h4 className="text-xl font-bold text-navy mb-4">Solar Pumps</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body">
+                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
                             <li className="flex items-center gap-2">
                                 <Sun size={16} className="text-gold" /> 7.5 HP Solar Pump
                             </li>
@@ -89,12 +100,15 @@ const RenewableSolarPage = () => (
 
                 {/* Solar Street Lights */}
                 <Link to="/services/solar-street-lights" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                            <img src={streetLightImg} alt="Solar Street Light" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                        </div>
                         <div className="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6">
                             <Lightbulb className="text-amber-500" size={28} />
                         </div>
                         <h4 className="text-xl font-bold text-navy mb-4">Solar Street Lights</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body">
+                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
                             <li className="flex items-center gap-2">
                                 <Sun size={16} className="text-gold" /> High Mass Street Lights
                             </li>
@@ -113,12 +127,15 @@ const RenewableSolarPage = () => (
 
                 {/* Solar Water Heaters */}
                 <Link to="/services/solar-water-heaters" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                            <img src={heaterImg} alt="Solar Water Heater" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                        </div>
                         <div className="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6">
                             <Droplets className="text-orange-500" size={28} />
                         </div>
                         <h4 className="text-xl font-bold text-navy mb-4">Solar Water Heaters</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body">
+                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
                             <li className="flex items-center gap-2">
                                 <Sun size={16} className="text-gold" /> Kamal Solar Water Heater
                             </li>
@@ -134,12 +151,15 @@ const RenewableSolarPage = () => (
 
                 {/* Solar Batteries */}
                 <Link to="/services/solar-batteries" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full">
+                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                            <img src={batteryImg} alt="Solar Battery" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                        </div>
                         <div className="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
                             <Battery className="text-green-500" size={28} />
                         </div>
                         <h4 className="text-xl font-bold text-navy mb-4">Solar Batteries</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body">
+                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
                             <li className="flex items-center gap-2">
                                 <Sun size={16} className="text-gold" /> Microtek Solar Battery
                             </li>

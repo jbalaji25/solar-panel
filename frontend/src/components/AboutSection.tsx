@@ -61,12 +61,14 @@ const AboutSection = () => {
             background: "hsl(213, 63%, 10%)",
           }}
         >
-          {/* The Lottie itself */}
-          <Lottie
-            animationData={cityConstructionAnimation}
-            loop={true}
-            className="w-full h-auto max-h-[500px] block"
-          />
+          {/* The Lottie itself — only render when visible for performance */}
+          {visible && (
+            <Lottie
+              animationData={cityConstructionAnimation}
+              loop={true}
+              className="w-full h-auto max-h-[500px] block"
+            />
+          )}
 
           {/* Top sky overlay — covers the light sky with the section's dark navy */}
           <div

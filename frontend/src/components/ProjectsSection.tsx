@@ -55,6 +55,7 @@ const ProjectsSection = () => {
                       src={p.image}
                       alt={p.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent flex flex-col justify-end p-6">
                       <span className="text-xs uppercase tracking-widest text-gold font-bold mb-1">{p.category}</span>

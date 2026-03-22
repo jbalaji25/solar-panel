@@ -1,30 +1,40 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
-import Index from "./pages/Index.tsx";
-import AboutPage from "./pages/AboutPage.tsx";
-import ManagementPage from "./pages/ManagementPage.tsx";
-import ContactPage from "./pages/ContactPage.tsx";
-import ImportExportPage from "./pages/services/ImportExportPage.tsx";
-import RentalLeasingPage from "./pages/services/RentalLeasingPage.tsx";
-import HospitalityPage from "./pages/services/HospitalityPage.tsx";
-import LogisticsPage from "./pages/services/LogisticsPage.tsx";
-import RealEstatePage from "./pages/services/RealEstatePage.tsx";
-import CatNJoyPage from "./pages/services/CatNJoyPage.tsx";
-import DogNJoyPage from "./pages/services/DogNJoyPage.tsx";
-import PerfectaPage from "./pages/services/PerfectaPage.tsx";
-import MechanicalPage from "./pages/projects/MechanicalPage.tsx";
-import CivilPage from "./pages/projects/CivilPage.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import RenewableSolarPage from "./pages/services/RenewableSolarPage.tsx";
-import SolarPowerPlantDetailed from "./pages/services/SolarPowerPlantDetailed.tsx";
-import SolarPumpsDetailed from "./pages/services/SolarPumpsDetailed.tsx";
-import SolarStreetLightsDetailed from "./pages/services/SolarStreetLightsDetailed.tsx";
-import SolarWaterHeatersDetailed from "./pages/services/SolarWaterHeatersDetailed.tsx";
-import SolarBatteriesDetailed from "./pages/services/SolarBatteriesDetailed.tsx";
+
+// Lazy-loaded pages for performance (code-splitting)
+const Index = lazy(() => import("./pages/Index.tsx"));
+const AboutPage = lazy(() => import("./pages/AboutPage.tsx"));
+const ManagementPage = lazy(() => import("./pages/ManagementPage.tsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.tsx"));
+const ImportExportPage = lazy(() => import("./pages/services/ImportExportPage.tsx"));
+const RentalLeasingPage = lazy(() => import("./pages/services/RentalLeasingPage.tsx"));
+const HospitalityPage = lazy(() => import("./pages/services/HospitalityPage.tsx"));
+const LogisticsPage = lazy(() => import("./pages/services/LogisticsPage.tsx"));
+const RealEstatePage = lazy(() => import("./pages/services/RealEstatePage.tsx"));
+const CatNJoyPage = lazy(() => import("./pages/services/CatNJoyPage.tsx"));
+const DogNJoyPage = lazy(() => import("./pages/services/DogNJoyPage.tsx"));
+const PerfectaPage = lazy(() => import("./pages/services/PerfectaPage.tsx"));
+const MechanicalPage = lazy(() => import("./pages/projects/MechanicalPage.tsx"));
+const CivilPage = lazy(() => import("./pages/projects/CivilPage.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const RenewableSolarPage = lazy(() => import("./pages/services/RenewableSolarPage.tsx"));
+const SolarPowerPlantDetailed = lazy(() => import("./pages/services/SolarPowerPlantDetailed.tsx"));
+const SolarPumpsDetailed = lazy(() => import("./pages/services/SolarPumpsDetailed.tsx"));
+const SolarStreetLightsDetailed = lazy(() => import("./pages/services/SolarStreetLightsDetailed.tsx"));
+const SolarWaterHeatersDetailed = lazy(() => import("./pages/services/SolarWaterHeatersDetailed.tsx"));
+const SolarBatteriesDetailed = lazy(() => import("./pages/services/SolarBatteriesDetailed.tsx"));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="flex h-screen w-full items-center justify-center bg-navy">
+    <div className="h-10 w-10 animate-spin rounded-full border-4 border-gold border-t-transparent"></div>
+  </div>
+);
 
 const queryClient = new QueryClient();
 
@@ -35,26 +45,28 @@ const App = () => (
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/management" element={<ManagementPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/services/renewable-solar-panel" element={<RenewableSolarPage />} />
-            <Route path="/services/solar-power-plants" element={<SolarPowerPlantDetailed />} />
-            <Route path="/services/solar-pumps" element={<SolarPumpsDetailed />} />
-            <Route path="/services/solar-street-lights" element={<SolarStreetLightsDetailed />} />
-            <Route path="/services/solar-water-heaters" element={<SolarWaterHeatersDetailed />} />
-            <Route path="/services/solar-batteries" element={<SolarBatteriesDetailed />} />
-            <Route path="/services/import-and-export" element={<ImportExportPage />} />
-            <Route path="/services/rental-leasing-transportation" element={<RentalLeasingPage />} />
-            <Route path="/services/hospitality-services" element={<HospitalityPage />} />
-            <Route path="/services/logistics-warehouse-management" element={<LogisticsPage />} />
-            <Route path="/services/real-estate" element={<RealEstatePage />} />
-            <Route path="/projects/mechanical" element={<MechanicalPage />} />
-            <Route path="/projects/civil" element={<CivilPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/management" element={<ManagementPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/services/renewable-solar-panel" element={<RenewableSolarPage />} />
+              <Route path="/services/solar-power-plants" element={<SolarPowerPlantDetailed />} />
+              <Route path="/services/solar-pumps" element={<SolarPumpsDetailed />} />
+              <Route path="/services/solar-street-lights" element={<SolarStreetLightsDetailed />} />
+              <Route path="/services/solar-water-heaters" element={<SolarWaterHeatersDetailed />} />
+              <Route path="/services/solar-batteries" element={<SolarBatteriesDetailed />} />
+              <Route path="/services/import-and-export" element={<ImportExportPage />} />
+              <Route path="/services/rental-leasing-transportation" element={<RentalLeasingPage />} />
+              <Route path="/services/hospitality-services" element={<HospitalityPage />} />
+              <Route path="/services/logistics-warehouse-management" element={<LogisticsPage />} />
+              <Route path="/services/real-estate" element={<RealEstatePage />} />
+              <Route path="/projects/mechanical" element={<MechanicalPage />} />
+              <Route path="/projects/civil" element={<CivilPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </TooltipProvider>

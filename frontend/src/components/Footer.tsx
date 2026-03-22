@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logoIcon from "@/assets/logo_icon.png";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1 */}
           <div>
-            <img src={logo} alt="Metallica" className="h-20 mb-4 ml-[-8px]" />
+            <img src={logoIcon} alt="Metallica Icon" className="h-24 w-auto mb-6 transition-transform hover:scale-110 duration-300" loading="lazy" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed font-body">
               Metallica Co. understands the current and future needs of the oil and gas companies and meets their requirements with excellence and professionalism.
             </p>
@@ -29,13 +29,29 @@ const Footer = () => {
           {/* Column 2 */}
           <div>
             <h4 className="font-heading font-bold text-lg mb-5 gold-text">Useful Links</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-6">
               {[
                 { label: "Home", path: "/" },
                 { label: "About", path: "/about" },
-                { label: "Services", path: "/services/import-and-export" },
-                { label: "Projects", path: "/projects/mechanical" },
+                { label: "Management", path: "/management" },
                 { label: "Contact Us", path: "/contact" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-primary-foreground/70 hover:text-gold transition-colors text-sm font-body"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="font-heading font-bold text-lg mb-5 gold-text">Our Projects</h4>
+            <ul className="space-y-2">
+              {[
+                { label: "Mechanical", path: "/projects/mechanical" },
+                { label: "Civil", path: "/projects/civil" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -51,7 +67,7 @@ const Footer = () => {
 
           {/* Column 3 */}
           <div>
-            <h4 className="font-heading font-bold text-lg mb-5 gold-text">Other Services</h4>
+            <h4 className="font-heading font-bold text-lg mb-5 gold-text">Our Services</h4>
             <ul className="space-y-2 text-sm font-body">
               {[
                 { label: "Renewable Solar Energy", path: "/services/renewable-solar-panel" },

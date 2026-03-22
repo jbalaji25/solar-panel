@@ -53,12 +53,13 @@ const Navbar = () => {
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/75 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-b border-white/60" : "bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-sm border-b border-slate-100"}`}>
       <div className={`container mx-auto flex items-center justify-between transition-all duration-300 ${scrolled ? "h-20" : "h-24"} px-4`}>
-        <Link to="/" className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-opacity group">
-          <img src={logo} alt="Metallica" className={`transition-all duration-300 ${scrolled ? "h-12 sm:h-16" : "h-14 sm:h-20"}`} />
-          <div className="flex flex-col justify-center border-l border-slate-200 pl-3 sm:pl-4 py-1">
-            <span className="font-heading font-black tracking-tighter text-sm sm:text-2xl md:text-3xl navy-text leading-none group-hover:text-gold transition-colors">METALLICA</span>
-            <span className="text-[6px] sm:text-[10px] md:text-[11px] font-bold text-slate-500 uppercase tracking-[0.15em] mt-1 leading-none">Projects & Services</span>
-          </div>
+        <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all duration-300 group">
+          <img
+            src={logo}
+            alt="Metallica"
+            className={`object-contain transition-all duration-500 ease-in-out ${scrolled ? "h-10 sm:h-12" : "h-12 sm:h-16"
+              }`}
+          />
         </Link>
 
         {/* Desktop */}
