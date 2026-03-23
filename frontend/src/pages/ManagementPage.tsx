@@ -2,7 +2,7 @@ import PageBanner from "@/components/PageBanner";
 import logo from "@/assets/logo.png";
 import { User, Users, Briefcase, FileText, ChevronRight, Settings, Layers, LucideIcon } from "lucide-react";
 import Lottie from "lottie-react";
-import teamAnimation from "@/assets/animations/team.json";
+import managementAnimation from "@/assets/animations/JSP Working.json";
 
 interface OrgNodeProps {
   label: string;
@@ -162,7 +162,7 @@ const ManagementPage = () => {
           </div>
 
           <div className="mt-20 flex flex-col items-center">
-            <Lottie animationData={teamAnimation} loop={true} className="w-full max-w-3xl h-auto mb-8 animate-fade-in drop-shadow-sm" />
+            <Lottie animationData={managementAnimation} loop={true} className="w-full max-w-3xl h-auto mb-8 animate-fade-in drop-shadow-sm" />
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-6 max-w-2xl">
               <div className="p-4 bg-navy rounded-2xl">
                 <img src={logo} alt="Metallica Logo" className="h-10 w-auto" />
