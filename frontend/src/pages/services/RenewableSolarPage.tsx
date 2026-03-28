@@ -125,62 +125,6 @@ const RenewableSolarPage = () => (
                     </div>
                 </Link>
 
-                {/* Solar Water Heaters */}
-                <Link to="/services/solar-water-heaters" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
-                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
-                            <img src={heaterImg} alt="Solar Water Heater" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                        </div>
-                        <div className="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6">
-                            <Droplets className="text-orange-500" size={28} />
-                        </div>
-                        <h4 className="text-xl font-bold text-navy mb-4">Solar Water Heaters</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
-                            <li className="flex items-center gap-2">
-                                <Sun size={16} className="text-gold" /> Kamal Solar Water Heater
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <Sun size={16} className="text-gold" /> Supreme Solar Water Heater
-                            </li>
-                        </ul>
-                        <div className="mt-6 flex items-center gap-2 text-orange-500 font-bold text-sm">
-                            View Details <span>→</span>
-                        </div>
-                    </div>
-                </Link>
-
-                {/* Solar Batteries */}
-                <Link to="/services/solar-batteries" className="block group">
-                    <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gold/20 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
-                        <div className="h-40 w-full mb-6 overflow-hidden rounded-2xl bg-slate-100">
-                            <img src={batteryImg} alt="Solar Battery" className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                        </div>
-                        <div className="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
-                            <Battery className="text-green-500" size={28} />
-                        </div>
-                        <h4 className="text-xl font-bold text-navy mb-4">Solar Batteries</h4>
-                        <ul className="space-y-3 text-muted-foreground font-body flex-1">
-                            <li className="flex items-center gap-2">
-                                <Sun size={16} className="text-gold" /> Microtek Solar Battery
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <Sun size={16} className="text-gold" /> Luminous Solar Battery
-                            </li>
-                        </ul>
-                        <div className="mt-6 flex items-center gap-2 text-green-500 font-bold text-sm">
-                            View Details <span>→</span>
-                        </div>
-                    </div>
-                </Link>
-
-                {/* Quality & Warranty */}
-                <div className="bg-navy p-8 rounded-3xl border border-white/10 shadow-xl flex flex-col justify-center items-center text-center">
-                    <Shield className="text-gold mb-6" size={48} />
-                    <h4 className="text-xl font-bold text-white mb-2">Quality Assurance</h4>
-                    <p className="text-white/70 text-sm font-body">
-                        All our solar products undergo rigorous quality testing and come with comprehensive manufacturer warranties for your peace of mind.
-                    </p>
-                </div>
             </div>
         </div>
     </ServicePageTemplate>
