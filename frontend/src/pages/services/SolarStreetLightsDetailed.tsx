@@ -10,7 +10,7 @@ const SolarStreetLightsDetailed = () => {
     const products = [
         {
             title: "Solar High Mass Street Lights",
-            price: "INR 1,25,000",
+
             image: highMassImg,
             features: [
                 "efficient lighting",
@@ -26,7 +26,7 @@ const SolarStreetLightsDetailed = () => {
         },
         {
             title: "All in One Solar Street Lights",
-            price: "INR 9,000",
+
             image: allInOneImg,
             features: [
                 "public spaces",
@@ -41,11 +41,11 @@ const SolarStreetLightsDetailed = () => {
                 "automatic dusktodawn operation",
                 "solar street lightsall"
             ],
-            description: "All in one solar street lights (12W-120W) are compact, self-sustaining outdoor lighting solutions. They integrate a solar panel, battery, LED light, and controller into a single unit for easy installation. With automatic dusk-to-dawn operation and motion sensor technology, they ensure energy efficiency and extended backup. Made from weatherproof and durable materials, they perform well in various environmental conditions. Ideal for streets, highways, parks, and public spaces, they provide reliable, eco-friendly illumination."
+            description: "All in one solar street lights are compact, self-sustaining outdoor lighting solutions. They integrate a solar panel, battery, LED light, and controller into a single unit for easy installation. With automatic dusk-to-dawn operation and motion sensor technology, they ensure energy efficiency and extended backup. Made from weatherproof and durable materials, they perform well in various environmental conditions. Ideal for streets, highways, parks, and public spaces, they provide reliable, eco-friendly illumination."
         },
         {
             title: "Semi Integrated Solar Street Lights",
-            price: "INR 9,000",
+
             image: semiIntegratedImg,
             features: [
                 "ecofriendly illumination",
@@ -62,7 +62,7 @@ const SolarStreetLightsDetailed = () => {
                 "led light integrated",
                 "solar panel battery"
             ],
-            description: "Semi Integrated solar street lights (12W-60W) are energy-efficient outdoor lighting solutions. They feature a compact design with a solar panel, battery, and LED light integrated into a single unit. These lights offer automatic dusk-to-dawn operation with motion sensor technology for enhanced efficiency. Built with weather-resistant materials, they ensure durability and long-lasting performance. Ideal for streets, pathways, parks, and commercial spaces, they provide reliable and eco-friendly illumination."
+            description: "Semi Integrated solar street lights are energy-efficient outdoor lighting solutions. They feature a compact design with a solar panel, battery, and LED light integrated into a single unit. These lights offer automatic dusk-to-dawn operation with motion sensor technology for enhanced efficiency. Built with weather-resistant materials, they ensure durability and long-lasting performance. Ideal for streets, pathways, parks, and commercial spaces, they provide reliable and eco-friendly illumination."
         }
     ];
 
@@ -92,11 +92,7 @@ const SolarStreetLightsDetailed = () => {
                                         alt={product.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute top-6 left-6">
-                                        <div className="bg-amber-500/80 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
-                                            <span className="text-white font-bold">{product.price}</span>
-                                        </div>
-                                    </div>
+
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 

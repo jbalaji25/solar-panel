@@ -51,15 +51,25 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/75 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-b border-white/60" : "bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-sm border-b border-slate-100"}`}>
+    <nav className={`sticky top-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white/75 backdrop-blur-xl shadow-[0_15px_40px_-15px_rgba(0,0,0,0.2)] border-b border-white/60" : "bg-gradient-to-r from-slate-50 via-white to-slate-50 shadow-sm border-b border-slate-100"}`}>
       <div className={`container mx-auto flex items-center justify-between transition-all duration-300 ${scrolled ? "h-20" : "h-24"} px-4`}>
         <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all duration-300 group">
           <img
             src={logo}
             alt="Metallica"
-            className={`object-contain transition-all duration-500 ease-in-out ${scrolled ? "h-10 sm:h-12" : "h-12 sm:h-16"
-              }`}
+            className={`object-contain transition-all duration-500 ease-in-out drop-shadow-sm ${
+              scrolled ? "h-12 sm:h-14" : "h-14 sm:h-18"
+            }`}
+            style={{ maxWidth: scrolled ? "140px" : "170px" }}
           />
+          <div className="flex flex-col leading-tight">
+            <span className={`font-heading font-extrabold tracking-widest navy-text uppercase transition-all duration-300 ${scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"}`}>
+              Metallica
+            </span>
+            <span className={`font-body font-medium tracking-wide text-slate-500 uppercase transition-all duration-300 ${scrolled ? "text-[9px] sm:text-[10px]" : "text-[10px] sm:text-xs"}`}>
+              General Trading &amp; Contracting
+            </span>
+          </div>
         </Link>
 
         {/* Desktop */}

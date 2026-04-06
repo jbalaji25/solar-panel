@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen flex flex-col">
       <TopBar />
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 w-full">{children}</main>
       <Footer />
     </div>
   );

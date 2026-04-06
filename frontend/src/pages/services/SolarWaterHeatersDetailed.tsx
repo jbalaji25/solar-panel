@@ -9,7 +9,7 @@ const SolarWaterHeatersDetailed = () => {
     const products = [
         {
             title: "Kamal Solar Water Heater",
-            price: "INR 15,000",
+
             image: kamalImg,
             features: [
                 "durable materials",
@@ -26,7 +26,7 @@ const SolarWaterHeatersDetailed = () => {
         },
         {
             title: "Supreme Solar Water Heater",
-            price: "INR 15,000",
+
             image: supremeImg,
             features: [
                 "work efficiently",
@@ -71,11 +71,7 @@ const SolarWaterHeatersDetailed = () => {
                                         alt={product.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute top-6 left-6">
-                                        <div className="bg-orange-600/80 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
-                                            <span className="text-white font-bold">{product.price}</span>
-                                        </div>
-                                    </div>
+
                                     <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 

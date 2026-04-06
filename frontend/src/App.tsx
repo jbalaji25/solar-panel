@@ -1,10 +1,14 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
+import Lottie from "lottie-react";
+import loadingAnimation from "@/assets/animations/Loading Animation Looped.json";
+import logo from "@/assets/logo_icon.png";
+import InitialLoader from "@/components/InitialLoader";
 
 // Lazy-loaded pages for performance (code-splitting)
 const Index = lazy(() => import("./pages/Index.tsx"));
@@ -32,45 +36,65 @@ const SolarBatteriesDetailed = lazy(() => import("./pages/services/SolarBatterie
 // Loading fallback component
 const PageLoader = () => (
   <div className="flex h-screen w-full items-center justify-center bg-navy">
-    <div className="h-10 w-10 animate-spin rounded-full border-4 border-gold border-t-transparent"></div>
+    <div className="relative flex items-center justify-center w-64 h-64">
+      <Lottie
+        animationData={loadingAnimation}
+        loop={true}
+        className="absolute inset-0 w-full h-full"
+      />
+      <div className="absolute w-20 h-20 rounded-full overflow-hidden bg-white z-10 flex items-center justify-center p-3 shadow-lg">
+        <img
+          src={logo}
+          alt="Solar Panel Logo"
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
   </div>
 );
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <Layout>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/management" element={<ManagementPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/services/renewable-solar-panel" element={<RenewableSolarPage />} />
-              <Route path="/services/solar-power-plants" element={<SolarPowerPlantDetailed />} />
-              <Route path="/services/solar-pumps" element={<SolarPumpsDetailed />} />
-              <Route path="/services/solar-street-lights" element={<SolarStreetLightsDetailed />} />
-              <Route path="/services/solar-water-heaters" element={<SolarWaterHeatersDetailed />} />
-              <Route path="/services/solar-batteries" element={<SolarBatteriesDetailed />} />
-              <Route path="/services/import-and-export" element={<ImportExportPage />} />
-              <Route path="/services/rental-leasing-transportation" element={<RentalLeasingPage />} />
-              <Route path="/services/hospitality-services" element={<HospitalityPage />} />
-              <Route path="/services/logistics-warehouse-management" element={<LogisticsPage />} />
-              <Route path="/services/real-estate" element={<RealEstatePage />} />
-              <Route path="/projects/mechanical" element={<MechanicalPage />} />
-              <Route path="/projects/civil" element={<CivilPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [showInitialLoader, setShowInitialLoader] = useState(true);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+          {showInitialLoader && <InitialLoader onComplete={() => setShowInitialLoader(false)} />}
+          <div className={`${showInitialLoader ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'} transition-opacity duration-1000`}>
+            <Layout>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/management" element={<ManagementPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/services/renewable-solar-panel" element={<RenewableSolarPage />} />
+                  <Route path="/services/solar-power-plants" element={<SolarPowerPlantDetailed />} />
+                  <Route path="/services/solar-pumps" element={<SolarPumpsDetailed />} />
+                  <Route path="/services/solar-street-lights" element={<SolarStreetLightsDetailed />} />
+                  <Route path="/services/solar-water-heaters" element={<SolarWaterHeatersDetailed />} />
+                  <Route path="/services/solar-batteries" element={<SolarBatteriesDetailed />} />
+                  <Route path="/services/import-and-export" element={<ImportExportPage />} />
+                  <Route path="/services/rental-leasing-transportation" element={<RentalLeasingPage />} />
+                  <Route path="/services/hospitality-services" element={<HospitalityPage />} />
+                  <Route path="/services/logistics-warehouse-management" element={<LogisticsPage />} />
+                  <Route path="/services/real-estate" element={<RealEstatePage />} />
+                  <Route path="/projects/mechanical" element={<MechanicalPage />} />
+                  <Route path="/projects/civil" element={<CivilPage />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </Layout>
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

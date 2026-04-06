@@ -472,14 +472,14 @@ class App {
       if (!this.gl) {
         // Fallback attempt for some environments
         const canvas = document.createElement('canvas');
-        this.gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl') as any;
+        this.gl = (canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as unknown as GL;
       }
       if (!this.gl) return;
       this.gl.clearColor(0, 0, 0, 0);
       this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
     } catch (e) {
       console.error("Renderer initialization failed:", e);
-      this.gl = null as any;
+      this.gl = null as unknown as GL;
     }
   }
 

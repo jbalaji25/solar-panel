@@ -21,42 +21,98 @@ const AboutPage = () => {
         <div className="absolute top-[30%] left-[20%] -z-10 w-[800px] h-[800px] bg-teal-300/25 rounded-[100%] blur-[120px] pointer-events-none mix-blend-multiply hidden lg:block"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Profile Image */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start mb-16 px-2 md:px-0">
-            <div className="rounded-lg overflow-hidden shadow-xl mb-8 lg:mb-0">
-              <img src={aboutImg} alt="About Metallica" className="w-full h-auto object-cover max-h-[350px] lg:max-h-none" />
-            </div>
+          {/* Profile Section with Statistics */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-24 px-2 md:px-0">
             <div className="px-2 md:px-0 text-left">
-              <p className="section-title">ABOUT US</p>
-              <h2 className="section-heading mb-6 text-2xl md:text-3xl lg:text-5xl">Our Profile</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed font-body text-sm md:text-base">
+              <p className="section-title text-navy">ABOUT US</p>
+              <h2 className="section-heading mb-6 text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-navy leading-tight">
+                Powering a Sustainable <br className="hidden md:block" /> Tomorrow
+              </h2>
+              <div className="space-y-6 text-muted-foreground leading-relaxed font-body text-base md:text-lg">
                 <p>
-                  The group has always worked on the guiding principles of Honesty, Integrity, Mutual Respect and Foresightedness, and hence the family has great acceptance in The State of Kuwait among Natives and Expats.
+                  <strong className="navy-text">City Solar</strong> is a recognized leader in sustainable energy solutions. 
+                  With 10 years of experience, we have successfully completed over 2000 projects, 
+                  totaling an impressive <span className="gold-text font-bold">80MWp</span> in installed capacity.
                 </p>
                 <p>
-                  With a Group Employee Strength of more than 100, the Company has now decided to unleash its Vision and hence the EMERGENCE of <strong className="navy-text">METALLICA</strong> GENERAL TRADING & CONTRACTING COMPANY W.L.L. with a specific Vision, defined Mission and preconceived Values become a reality.
-                </p>
-                <p>
-                  Our Objective is to provide innovative products to consumers, value to stakeholders, manage a sustainable and ethical organization that takes into account the concerns and interests of all the stakeholders, community and society. We have a genuine desire to serve our customers efficiently and cost effectively.
-                </p>
-                <p>
-                  <strong className="navy-text">METALLICA</strong> is focused on the growing economy of the State of Kuwait, with major contributions in the construction industry serving Kuwait in various ways. METALLICA has significant operations throughout the great nation of Kuwait at the same time serving organizations in both the private and public sector, including many Government establishments and corporations.
+                  Our commitment to excellence has resulted in annual savings of 
+                  <span className="navy-text font-bold"> AED 60 million</span> for our clients. 
+                  We are proud to hold the Platinum ranking by DEWA, a testament to our unwavering commitment to quality.
                 </p>
               </div>
 
-              <div className="mt-8 space-y-3">
-                {[
-                  "Impeccable Industry Markets",
-                  "All Construction & Contracting Solutions",
-                  "Reasonable Costing & Services",
-                  "Outstanding Building & Renovations",
-                  "Appreciable Quality Products",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle size={16} className="text-gold flex-shrink-0" />
-                    <span className="text-sm font-body text-foreground leading-tight">{item}</span>
-                  </div>
-                ))}
+              <div className="mt-12">
+                <h3 className="text-2xl font-heading font-bold navy-text mb-6 uppercase tracking-wider border-l-4 border-gold pl-4">
+                  SOLAR ENERGY SAVINGS
+                </h3>
+                <p className="text-muted-foreground mb-8 text-lg italic">Powering Your Home and Your Wallet</p>
+                <div className="space-y-4">
+                  {[
+                    "Disciplined Workmanship and Commitment to Timelines",
+                    "Flexible Payment Terms and Finance Offers",
+                    "Best-in-class Equipment and Warranties",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-4 group">
+                      <div className="bg-gold/10 p-2 rounded-full group-hover:bg-gold/20 transition-colors">
+                        <CheckCircle size={20} className="text-gold" />
+                      </div>
+                      <span className="text-base font-heading font-semibold text-navy leading-tight">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col gap-10">
+              <div className="flex items-start gap-6 group">
+                <div className="w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-600"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L13 15"/><path d="M14 6.5a2 2 0 1 0-4 0a2 2 0 0 0 4 0Z"/><path d="M18 2h-3a2 2 0 0 0-2 2v2"/><path d="M7 2h3a2 2 0 0 1 2 2v2"/></svg>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-heading font-extrabold navy-text">Up to 100%</h4>
+                  <p className="text-muted-foreground font-body font-bold text-sm tracking-widest uppercase">Financing Available</p>
+                </div>
+              </div>
+
+              <div className="w-full h-px bg-slate-100"></div>
+
+              <div className="flex items-start gap-6 group">
+                <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-heading font-extrabold navy-text">Thousands</h4>
+                  <p className="text-muted-foreground font-body font-bold text-sm tracking-widest uppercase">Of Dirhams Saved Monthly</p>
+                </div>
+              </div>
+
+              <div className="w-full h-px bg-slate-100"></div>
+
+              <div className="flex items-start gap-6 group">
+                <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600"><path d="M12 21a9 9 0 1 0-9-9c0 1.48.35 2.89 1.08 4.16L3 21l4.84-1.08C9.11 20.65 10.52 21 12 21Z"/><path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z"/><path d="m11.5 11-1.5 5h1a2 2 0 0 1 2 2"/></svg>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-heading font-extrabold navy-text">5 Star</h4>
+                  <p className="text-muted-foreground font-body font-bold text-sm tracking-widest uppercase">Customer Ratings</p>
+                </div>
+              </div>
+
+              <div className="w-full h-px bg-slate-100"></div>
+
+              <div className="flex items-start gap-6 group">
+                <div className="w-16 h-16 rounded-2xl bg-teal-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-teal-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-heading font-extrabold navy-text">30 Years</h4>
+                  <p className="text-muted-foreground font-body font-bold text-sm tracking-widest uppercase">Extended Warranty</p>
+                </div>
+              </div>
+
+              {/* Image moved here - Below the 30 Years box */}
+              <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-white/50 mt-4 group">
+                <img src={aboutImg} alt="City Solar Energy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </div>

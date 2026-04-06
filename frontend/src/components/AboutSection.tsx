@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle } from "lucide-react";
-import Lottie from "lottie-react";
-import cityConstructionAnimation from "@/assets/animations/city_building_construction.json";
+import DynamicLottie from "@/components/DynamicLottie";
+import cityConstructionUrl from "@/assets/animations/city_building_construction.json?url";
 
 const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,8 +63,8 @@ const AboutSection = () => {
         >
           {/* The Lottie itself — only render when visible for performance */}
           {visible && (
-            <Lottie
-              animationData={cityConstructionAnimation}
+            <DynamicLottie
+              animationUrl={cityConstructionUrl}
               loop={true}
               className="w-full h-auto max-h-[500px] block"
             />

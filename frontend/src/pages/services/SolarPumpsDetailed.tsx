@@ -10,7 +10,7 @@ const SolarPumpsDetailed = () => {
     const products = [
         {
             title: "7.5 HP Solar Pump",
-            price: "INR 4,12,000",
+
             image: pump7_5hp,
             features: [
                 "ideal choice",
@@ -31,7 +31,7 @@ const SolarPumpsDetailed = () => {
         },
         {
             title: "5 HP Solar Pump",
-            price: "INR 2,50,000",
+
             image: pump5hp,
             features: [
                 "remote areas",
@@ -48,7 +48,7 @@ const SolarPumpsDetailed = () => {
         },
         {
             title: "2 HP Solar Pump",
-            price: "INR 1,45,000",
+
             image: pump2hp,
             features: [
                 "sustainability benefits",
@@ -90,11 +90,7 @@ const SolarPumpsDetailed = () => {
                                         alt={product.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute top-6 left-6">
-                                        <div className="bg-blue-600/80 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
-                                            <span className="text-white font-bold">{product.price}</span>
-                                        </div>
-                                    </div>
+
                                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 

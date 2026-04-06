@@ -164,7 +164,7 @@ const ManagementPage = () => {
           <div className="mt-20 flex flex-col items-center">
             <Lottie animationData={managementAnimation} loop={true} className="w-full max-w-3xl h-auto mb-8 animate-fade-in drop-shadow-sm" />
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-6 max-w-2xl">
-              <div className="p-4 bg-navy rounded-2xl">
+              <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
                 <img src={logo} alt="Metallica Logo" className="h-10 w-auto" />
               </div>
               <div>

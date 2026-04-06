@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoIcon from "@/assets/logo_icon.png";
+import logoIcon from "@/assets/footer_logo.png";
 
 const Footer = () => {
   return (
@@ -9,7 +9,14 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1 */}
           <div>
-            <img src={logoIcon} alt="Metallica Icon" className="h-24 w-auto mb-6 transition-transform hover:scale-110 duration-300" loading="lazy" />
+            <Link to="/" className="flex items-center gap-3 mb-6 transition-all duration-300 group">
+              <div className="h-20 w-20 rounded-full bg-white flex items-center justify-center p-2 shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                <img src={logoIcon} alt="Metallica Icon" className="h-full w-full object-contain" loading="lazy" />
+              </div>
+              <span className="font-heading font-extrabold text-2xl tracking-widest text-white uppercase">
+                Metallica
+              </span>
+            </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed font-body">
               Metallica Co. understands the current and future needs of the oil and gas companies and meets their requirements with excellence and professionalism.
             </p>

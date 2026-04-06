@@ -10,7 +10,7 @@ const SolarPowerPlantDetailed = () => {
     const products = [
         {
             title: "Off Grid Solar Power Plant",
-            price: "INR 1,07,000",
+
             image: offGridImg,
             features: [
                 "homes farms",
@@ -24,11 +24,11 @@ const SolarPowerPlantDetailed = () => {
                 "solar panels batteries",
                 "selfsustaining energy system"
             ],
-            description: "An Off grid solar power plant (Prices Per KW) is a self-sustaining energy system that operates independently of the electricity grid. It uses solar panels, batteries, and an inverter to store and supply power, ensuring uninterrupted electricity. Ideal for remote areas, it provides a reliable solution where grid connectivity is unavailable. These systems reduce dependence on fossil fuels and offer long-term cost savings. Off-grid solar plants are perfect for homes, farms, and businesses seeking energy independence and sustainability."
+            description: "An Off grid solar power plant is a self-sustaining energy system that operates independently of the electricity grid. It uses solar panels, batteries, and an inverter to store and supply power, ensuring uninterrupted electricity. Ideal for remote areas, it provides a reliable solution where grid connectivity is unavailable. These systems reduce dependence on fossil fuels and offer long-term cost savings. Off-grid solar plants are perfect for homes, farms, and businesses seeking energy independence and sustainability."
         },
         {
             title: "On Grid Solar Power Plant",
-            price: "INR 67,000",
+
             image: onGridImg,
             features: [
                 "homes businesses",
@@ -42,7 +42,7 @@ const SolarPowerPlantDetailed = () => {
                 "require batteries making",
                 "generates solar power"
             ],
-            description: "An On grid solar power plant(Prices Per KW) is a renewable energy system connected directly to the electricity grid. It generates solar power using photovoltaic panels and supplies excess energy back to the grid, reducing electricity bills. These systems do not require batteries, making them cost-effective and low maintenance. They operate efficiently with net metering, allowing users to earn credits for surplus power. Ideal for homes, businesses, and industries, on-grid solar plants promote sustainable and economical energy solutions."
+            description: "An On grid solar power plant is a renewable energy system connected directly to the electricity grid. It generates solar power using photovoltaic panels and supplies excess energy back to the grid, reducing electricity bills. These systems do not require batteries, making them cost-effective and low maintenance. They operate efficiently with net metering, allowing users to earn credits for surplus power. Ideal for homes, businesses, and industries, on-grid solar plants promote sustainable and economical energy solutions."
         }
     ];
 
@@ -74,11 +74,7 @@ const SolarPowerPlantDetailed = () => {
                                         alt={product.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute top-6 left-6">
-                                        <div className="bg-navy/80 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
-                                            <span className="text-gold font-bold">{product.price}</span>
-                                        </div>
-                                    </div>
+
                                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 

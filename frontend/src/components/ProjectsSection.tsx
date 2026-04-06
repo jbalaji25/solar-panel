@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import projectMech from "@/assets/project-mechanical.jpg";
 import projectCivil from "@/assets/project-civil.jpg";
 import projectEng from "@/assets/project-engineering.jpg";
-import CardSwap, { Card } from "./PixelTransition4";
+import Carousel from "./PixelTransition9";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const projects = [
   { image: projectMech, title: "Mechanical", category: "Mechanical", path: "/projects/mechanical" },
@@ -25,48 +26,35 @@ const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const carouselItems = projects.map((p, i) => ({
+    id: i,
+    title: p.title,
+    description: `${p.category} solutions delivering excellence in every detail.`,
+    image: p.image,
+    icon: <FiArrowUpRight className="h-4 w-4" />
+  }));
+
   return (
     <section className="section-padding overflow-hidden" style={{ background: "hsl(var(--gray-light))" }}>
       <div className="container mx-auto">
         <div
           ref={headerRef}
-          className={`text-center mb-20 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-12 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <p className="section-title">RECENTLY COMPLETED</p>
           <h2 className="section-heading">Our Latest Projects</h2>
         </div>
 
         {/* Animation Container */}
-        <div className="relative h-[650px] w-full flex items-center justify-center mt-32 md:mt-48">
-          <div className="w-[300px] sm:w-[400px] md:w-[500px] h-full relative">
-            <CardSwap
-              width="100%"
-              height={350}
-              cardDistance={40}
-              verticalDistance={50}
-              delay={2000}
-              pauseOnHover={true}
-              onCardClick={(idx) => navigate(projects[idx].path)}
-            >
-              {projects.map((p, i) => (
-                <Card key={i} className="overflow-hidden shadow-2xl border-navy/10">
-                  <div className="relative w-full h-full group">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent flex flex-col justify-end p-6">
-                      <span className="text-xs uppercase tracking-widest text-gold font-bold mb-1">{p.category}</span>
-                      <h3 className="text-white font-heading font-bold text-2xl">{p.title}</h3>
-                      <div className="w-10 h-1 bg-gold mt-3 transform origin-left transition-transform duration-300 group-hover:scale-x-150"></div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </CardSwap>
-          </div>
+        <div className="flex items-center justify-center mt-12 md:mt-16">
+          <Carousel 
+            items={carouselItems} 
+            baseWidth={500} 
+            baseHeight={350}
+            autoplay={true} 
+            autoplayDelay={3500} 
+            loop={true} 
+          />
         </div>
       </div>
     </section>
@@ -74,3 +62,4 @@ const ProjectsSection = () => {
 };
 
 export default ProjectsSection;
+

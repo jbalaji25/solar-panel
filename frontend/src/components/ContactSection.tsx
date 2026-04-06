@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
-import contactVideo from "@/assets/hayalgezgini.mp4?url";
 
 const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,8 +39,9 @@ const ContactSection = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          src={contactVideo}
         >
+          <source src="/video/hero_vedio_1080_new.mp4" type="video/mp4" media="(min-width:1200px)" />
+          <source src="/video/hero_vedio_720_new.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Simple Semi-transparent Dark Overlay */}
